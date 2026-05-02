@@ -19,16 +19,20 @@ jobs:
       - name: Checkout source repo
         uses: actions/checkout@v4
 
-      - name: Setup SSH agent (deploy key)
-        uses: webfactory/ssh-agent@v0.9.0
+      - name: Create installation token (GitHub App)
+        id: app-token
+        uses: actions/create-github-app-token@v1
         with:
-          ssh-private-key: ${{ secrets.CHANGELOG_DEPLOY_KEY }}
+          app-id: ${{ secrets.PJFOOT_MIRROR_APP_ID }}
+          private-key: ${{ secrets.PJFOOT_MIRROR_APP_PRIVATE_KEY }}
+          owner: pejota81
+          repositories: pjfoot
 
       - name: Checkout destination repo
         uses: actions/checkout@v4
         with:
           repository: pejota81/DEST_REPO
-          ssh-key: ${{ secrets.CHANGELOG_DEPLOY_KEY }}
+          token: ${{ steps.app-token.outputs.token }}
           path: dest
           fetch-depth: 1
 
