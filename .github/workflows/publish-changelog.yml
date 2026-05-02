@@ -1,0 +1,55 @@
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-changelog-main
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    # For merge commits created by "Create a merge commit"
+    if: startsWith(github.event.head_commit.message, 'Merge pull request ')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+
+      - name: Setup SSH agent (deploy key)
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.CHANGELOG_DEPLOY_KEY }}
+
+      - name: Checkout destination repo
+        uses: actions/checkout@v4
+        with:
+          repository: pejota81/DEST_REPO
+          ssh-key: ${{ secrets.CHANGELOG_DEPLOY_KEY }}
+          path: dest
+          fetch-depth: 1
+
+      - name: Sync changelog folder to destination root/changelog
+        run: |
+          set -euo pipefail
+          rsync -a --delete changelog/ dest/changelog/
+
+      - name: Commit and push if changed
+        run: |
+          set -euo pipefail
+          cd dest
+
+          if git diff --quiet; then
+            echo "No changelog changes to publish."
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git commit -m "Publish changelog from PJfoot-feedback @ $GITHUB_SHA"
+          git push
