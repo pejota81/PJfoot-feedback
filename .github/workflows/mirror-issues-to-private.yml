@@ -1,0 +1,42 @@
+name: Mirror new issues to private repo
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create installation token (GitHub App)
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.PJFOOT_MIRROR_APP_ID }}
+          private-key: ${{ secrets.PJFOOT_MIRROR_APP_PRIVATE_KEY }}
+          owner: pejota81
+          repositories: pjfoot
+
+      - name: Create issue in private repo
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          SOURCE_TITLE: ${{ github.event.issue.title }}
+          SOURCE_URL: ${{ github.event.issue.html_url }}
+          SOURCE_BODY: ${{ github.event.issue.body }}
+        run: |
+          body=$(cat <<EOF
+          <!-- mirrored-from: pejota81/PJfoot-feedback -->
+          Mirrors: $SOURCE_URL
+
+          $SOURCE_BODY
+          EOF
+          )
+
+          gh api \
+            -X POST \
+            /repos/pejota81/pjfoot/issues \
+            -f title="$SOURCE_TITLE" \
+            -f body="$body"
