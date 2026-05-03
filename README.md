@@ -1,15 +1,13 @@
-```
 +-----------------------------------------------------------+
 |                          PJFOOT                           |
 |             Retro Football Manager Community              |
 +-----------------------------------------------------------+
-```
 
 Language: **English** | [Português (Brasil)](README.pt-BR.md) | [Español](README.es.md)
 
 # Welcome to PJfoot
 
-Welcome to **PJfoot**, the ultimate retro-styled football manager simulator inspired by the legendary Elifoot 98! Take control of your club, build your dream squad, navigate the pressures of competition, and lead your team to championship glory.
+Welcome to **PJfoot**, the ultimate retro-styled football manager simulator inspired by the legendary Elifoot 98! Take control of your club, build your dream squad, navigate the pressures of compe[...]  
 
 Think you have what it takes to be a champion manager? This is your proving ground.
 
@@ -57,7 +55,7 @@ Curious about where we've been? Check out the complete journey:
 | **v0.03** | May 2, 2026 | Mobile UX, Themes, Data Pipeline |
 | **v0.02** | May 2, 2026 | Squad Management, Player Depth, Fatigue System |
 | **v0.01** | May 2, 2026 | League Rankings, New Manager Experience |
-| **v0.00** | January 1, 2026 | Initial Release, Core Game Mechanics |
+| **v0.00** | May 1, 2026 | Initial Release, Core Game Mechanics |
 
 [📚 View All Changelogs →](changelog/)
 
