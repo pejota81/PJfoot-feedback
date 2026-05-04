@@ -80,7 +80,7 @@ We've been hard at work making PJfoot **rock-solid and accessible** for everyone
 - 📱 **Mobile is Perfect** — Hamburger menus, touch-optimized controls, and fully responsive layouts
 - ⚡ **Rock-Solid Infrastructure** — Better performance, improved data handling, and CI/CD hardening
 
-[📖 Full Release Notes](changelog/v0.14.md)
+[📖 Full Release Notes](changelog/v0.15.md)
 
 **Pro Tip:** No game-breaking changes. Your saves are safe to upgrade!
 
@@ -92,6 +92,7 @@ Curious about where we've been? Check out the complete journey:
 
 | Version | Release | Highlights |
 |---------|---------|-----------|
+| **v0.15** | May 3, 2026 | News System, Dashboard Polish & Save Reliability |
 | **v0.14** | May 3, 2026 | Manager Rankings, Champions Hall & Unified Cup Calendar |
 | **v0.13** | May 3, 2026 | Security, Polish & DevOps Hardening |
 | **v0.12** | May 3, 2026 | Live Match, Cards & Post-Match Overhaul |
