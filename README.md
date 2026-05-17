@@ -7,16 +7,6 @@ Language: **English** | [Português (Brasil)](README.pt-BR.md) | [Español](READ
 
 ---
 
-> ## 💬 Join Our WhatsApp Community!
-> **Got questions? Want tips? Just want to talk football?**
-> Our managers community is live on WhatsApp — get support, share tactics, and be the first to hear about new releases.
->
-> ### 👉 **[Join the Mister WhatsApp Group](https://chat.whatsapp.com/C4r6lJ09VmQHSTBniDdlVn?mode=gi_t)**
->
-> _Tap the link above on your phone and jump straight in. See you on the pitch!_ ⚽
-
----
-
 # Welcome to Mister ⚽
 
 Ever dreamed of managing your own football club from the ground up? **Mister** is a single-player, retro-styled football manager simulator inspired by the legendary *Elifoot 98* — brought into the modern era with real league data, deep tactics, and a live match engine.
